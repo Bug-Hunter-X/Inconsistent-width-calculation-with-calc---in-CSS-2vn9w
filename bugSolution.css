@@ -1,0 +1,16 @@
+The solution involves adding the border width to the subtraction within the `calc()` function:
+
+```css
+.container {
+  width: 50%;
+  border: 10px solid red;
+  box-sizing: border-box; /*This is the crucial step*/
+}
+
+.inner {
+  width: calc(100% - 20px - 20px); /*Subtract border width (10px on both sides)*/
+  background-color: blue;
+}
+```
+
+By including the border-width in the calculation, we ensure that the width is computed correctly. An even better solution would be to use `box-sizing: border-box` on the parent element to include the border in the element's total width. This simplifies the calculation and improves consistency.
