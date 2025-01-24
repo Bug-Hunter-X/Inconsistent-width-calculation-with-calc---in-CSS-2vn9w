@@ -1,0 +1,15 @@
+The following CSS code snippet demonstrates an issue with unexpected behavior when using the `calc()` function with percentages and lengths:
+
+```css
+.container {
+  width: 50%;
+  border: 10px solid red;
+}
+
+.inner {
+  width: calc(100% - 20px);
+  background-color: blue;
+}
+```
+
+The intention is to make the `.inner` element's width 20px less than its parent's width. However, the calculation might not produce the expected result in some browsers due to the way `calc()` handles percentages and lengths in complex scenarios.  The error lies in how the browser interprets the percentage calculation relative to the element's current width which is affected by the border, resulting in a less precise measurement than expected, leading to unpredictable width values for the `.inner` element.
